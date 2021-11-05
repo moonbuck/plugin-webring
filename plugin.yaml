@@ -1,0 +1,12 @@
+---
+version: 1.0.0
+title: Moondeer's Webring
+description: Facilitates adding IndieWeg Webring
+includes:
+- font_awesome_injection.html
+#- FOOTER.plugin_webring.html
+- "/assets/css/webring.css"
+fields:
+- field: params.webring_emojis
+  label: Emojis
+  placeholder: " \U0001F578\U0001F48D"
