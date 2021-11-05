@@ -1,0 +1,13 @@
+#webring {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+#webring a:first-child {
+  margin-right: 20px;
+}
+
+#webring a:last-child {
+  margin-left: 20px;
+}
