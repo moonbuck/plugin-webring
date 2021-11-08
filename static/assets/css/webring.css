@@ -16,3 +16,45 @@
   
 }
 */
+
+/* Font Awesome Arrows */
+
+svg:not(:root).svg-inline--fa{
+    overflow:visible;
+    -webkit-box-sizing:content-box;
+    box-sizing:content-box
+}
+.svg-inline--fa{
+    display:inline-block;
+    display:var(--fa-display,inline-block);
+    height:1em;
+    overflow:visible;
+    vertical-align:-.125em
+}
+.svg-inline--fa .fa-primary{
+    fill:currentColor;
+    fill:var(--fa-primary-color,currentColor);
+    opacity:1;
+    opacity:var(--fa-primary-opacity,1)
+}
+.svg-inline--fa .fa-secondary{
+    fill:currentColor;
+    fill:var(--fa-secondary-color,currentColor);
+    opacity:.4;
+    opacity:var(--fa-secondary-opacity,.4)
+}
+.svg-inline--fa.fa-swap-opacity .fa-primary{
+    opacity:.4;
+    opacity:var(--fa-secondary-opacity,.4)
+}
+.svg-inline--fa.fa-swap-opacity .fa-secondary{
+    opacity:1;
+    opacity:var(--fa-primary-opacity,1)
+}
+.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{
+    fill:#000
+}
+.fa-duotone.fa-inverse,.fad.fa-inverse{
+    color:#fff;
+    color:var(--fa-inverse,#fff)
+}

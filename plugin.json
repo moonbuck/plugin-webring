@@ -3,7 +3,6 @@
   "title": "Moondeer's Webring",
   "description": "Facilitates adding IndieWeg Webring",
   "includes": [
-    "font-awesome-injection.html",
     /*"FOOTER.plugin-webring.html",*/
     "/assets/css/webring.css"
   ],
