@@ -10,6 +10,11 @@
       "field": "params.webring_emojis",  
       "label": "Emojis",  
       "placeholder": " 🕸💍"  
-    }  
+    },
+   {
+     "field": "params.webring_wrapper",
+     "label": "HTML Tag for Wrapper",
+     "placeholder": "footer"
+   } 
   ]
 }
