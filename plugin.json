@@ -1,20 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "title": "Moondeer's Webring",
-  "description": "Facilitates adding IndieWeg Webring",
-  "includes": [
-    "/assets/css/webring.css"
-  ],
-  "fields": [
-    {  
-      "field": "params.webring_emojis",  
-      "label": "Emojis",  
-      "placeholder": " 🕸💍"  
-    },
-   {
-     "field": "params.webring_wrapper",
-     "label": "HTML Tag for Wrapper",
-     "placeholder": "footer"
-   } 
-  ]
+  "description": "Facilitates adding IndieWeg Webring"
 }

@@ -1,0 +1,75 @@
+{{- /********************************************************
+  Resolves theme and plugin data files to build a map of 
+  parameter values and injects this map into the page scratch
+  ***********************************************************/ -}}
+
+{{- /************************************************
+  Initialize variables with default parameter values
+  to ensure every parameter has a map entry. 
+  ***************************************************/ -}}
+  
+{{- $Version := "" -}}
+{{- $DebugPrint := false -}}
+{{- $Emojis := "" -}}
+{{- $Wrapper := "footer" -}}
+{{- $WrapperID := "footer" -}}
+{{- $LabelID := "label" -}}
+{{- $Gap := "20px" -}}
+{{- $VerticalAlign := "-.225em" -}}
+{{- $Height := "1em" -}}
+
+{{- /************************************************
+  Override the default parameter values with values
+  found in the plugin data files.
+  ***************************************************/ -}}
+
+{{- with site.Data.plugin_webring.Config -}}
+
+{{- with .Version }}{{ $Version = . }}{{ end -}}
+{{- if (isset . "DebugPrint") }}{{ $DebugPrint = .DebugPrint }}{{ end -}}
+{{- with .Emojis }}{{ $Emojis = . }}{{ end -}}
+{{- with .Wrapper }}{{ $Wrapper = . }}{{ end -}}
+{{- with .WrapperID }}{{ $WrapperID = . }}{{ end -}}
+{{- with .LabelID }}{{ $LabelID = . }}{{ end -}}
+{{- with .Gap }}{{ $Gap = . }}{{ end -}}
+{{- with .VerticalAlign }}{{ $VeticalAlign = . }}{{ end -}}
+{{- with .Height }}{{ $Height = . }}{{ end -}}
+
+{{- end -}} {{- /* with site.Data.plugin_webring */ -}}
+
+{{- /**********************************************
+  Override the default/plugin parameter values with
+  values found in the theme data file.
+  *************************************************/ -}}
+
+{{- with (index site.Data "plugin-webring") -}}
+
+{{- with .Version }}{{ $Version = . }}{{ end -}}
+{{- if (isset . "DebugPrint") }}{{ $DebugPrint = .DebugPrint }}{{ end -}}
+{{- with .Emojis }}{{ $Emojis = . }}{{ end -}}
+{{- with .Wrapper }}{{ $Wrapper = . }}{{ end -}}
+{{- with .WrapperID }}{{ $WrapperID = . }}{{ end -}}
+{{- with .LabelID }}{{ $LabelID = . }}{{ end -}}
+{{- with .Gap }}{{ $Gap = . }}{{ end -}}
+{{- with .VerticalAlign }}{{ $VeticalAlign = . }}{{ end -}}
+{{- with .Height }}{{ $Height = . }}{{ end -}}
+
+{{- end -}} {{- /* with (index site.Data "plugin-webring") */ -}}
+
+{{- /**************************************************
+  Construct the intermediate maps (mostly for clarity).
+  
+  The map inserted into the page scratch will have the 
+  following key structure:
+  
+  Config
+  *********************************************************/ -}}
+  
+{{- /* Parameters */ -}}
+{{- $Parameters := dict "Version" $Version "DebugPrint" $DebugPrint "Emojis" $Emojis "Wrapper" $Wrapper "WrapperID" $WrapperID "LabelID" $LabelID "Gap" $Gap "VerticalAlign" $VerticalAlign "Height" $Height -}}
+
+{{- /********************************************
+  Insert the parameter map into the page scratch.
+  ***********************************************/ -}}
+  
+{{- .Scratch.Set "plugin-webring.Parameters" $Parameters -}}
