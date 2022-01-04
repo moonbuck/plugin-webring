@@ -13,6 +13,7 @@
 {{- $Emojis := "" -}}
 {{- $Wrapper := "footer" -}}
 {{- $WrapperID := "footer" -}}
+{{- $Label := "An IndieWeb Webring" -}}
 {{- $LabelID := "label" -}}
 {{- $Gap := "20px" -}}
 {{- $VerticalAlign := "-.225em" -}}
@@ -30,9 +31,10 @@
 {{- with .Emojis }}{{ $Emojis = . }}{{ end -}}
 {{- with .Wrapper }}{{ $Wrapper = . }}{{ end -}}
 {{- with .WrapperID }}{{ $WrapperID = . }}{{ end -}}
+{{- with .Label }}{{ $Label = . }}{{ end -}}
 {{- with .LabelID }}{{ $LabelID = . }}{{ end -}}
 {{- with .Gap }}{{ $Gap = . }}{{ end -}}
-{{- with .VerticalAlign }}{{ $VeticalAlign = . }}{{ end -}}
+{{- with .VerticalAlign }}{{ $VerticalAlign = . }}{{ end -}}
 {{- with .Height }}{{ $Height = . }}{{ end -}}
 
 {{- end -}} {{- /* with site.Data.plugin_webring */ -}}
@@ -49,24 +51,20 @@
 {{- with .Emojis }}{{ $Emojis = . }}{{ end -}}
 {{- with .Wrapper }}{{ $Wrapper = . }}{{ end -}}
 {{- with .WrapperID }}{{ $WrapperID = . }}{{ end -}}
+{{- with .Label }}{{ $Label = . }}{{ end -}}
 {{- with .LabelID }}{{ $LabelID = . }}{{ end -}}
 {{- with .Gap }}{{ $Gap = . }}{{ end -}}
-{{- with .VerticalAlign }}{{ $VeticalAlign = . }}{{ end -}}
+{{- with .VerticalAlign }}{{ $VerticalAlign = . }}{{ end -}}
 {{- with .Height }}{{ $Height = . }}{{ end -}}
 
 {{- end -}} {{- /* with (index site.Data "plugin-webring") */ -}}
 
-{{- /**************************************************
-  Construct the intermediate maps (mostly for clarity).
-  
-  The map inserted into the page scratch will have the 
-  following key structure:
-  
-  Config
-  *********************************************************/ -}}
+{{- /************************
+  Construct the parameter map
+  ***************************/ -}}
   
 {{- /* Parameters */ -}}
-{{- $Parameters := dict "Version" $Version "DebugPrint" $DebugPrint "Emojis" $Emojis "Wrapper" $Wrapper "WrapperID" $WrapperID "LabelID" $LabelID "Gap" $Gap "VerticalAlign" $VerticalAlign "Height" $Height -}}
+{{- $Parameters := dict "Version" $Version "DebugPrint" $DebugPrint "Emojis" $Emojis "Wrapper" $Wrapper "WrapperID" $WrapperID "Label" $Label "LabelID" $LabelID "Gap" $Gap "VerticalAlign" $VerticalAlign "Height" $Height -}}
 
 {{- /********************************************
   Insert the parameter map into the page scratch.
