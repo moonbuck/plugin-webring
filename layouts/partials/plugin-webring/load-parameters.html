@@ -7,17 +7,17 @@
   Initialize variables with default parameter values
   to ensure every parameter has a map entry. 
   ***************************************************/ -}}
-  
-{{- $Version := "" -}}
-{{- $DebugPrint := false -}}
-{{- $Emojis := "" -}}
-{{- $Wrapper := "footer" -}}
-{{- $WrapperID := "footer" -}}
-{{- $Label := "An IndieWeb Webring" -}}
-{{- $LabelID := "label" -}}
-{{- $Gap := "20px" -}}
-{{- $VerticalAlign := "-.225em" -}}
-{{- $Height := "1em" -}}
+{{- $Parameters := dict 
+  "Version" "" 
+  "DebugPrint" false 
+  "Emojis" ""
+  "Wrapper" "footer" 
+  "WrapperID" "webring" 
+  "Label" "An IndieWeb Webring" 
+  "LabelID" "label" 
+  "Gap" "20px" 
+  "VerticalAlign" "-.225em" 
+  "Height" "1em" -}}
 
 {{- /************************************************
   Override the default parameter values with values
@@ -25,19 +25,8 @@
   ***************************************************/ -}}
 
 {{- with site.Data.plugin_webring.Config -}}
-
-{{- with .Version }}{{ $Version = . }}{{ end -}}
-{{- if (isset . "DebugPrint") }}{{ $DebugPrint = .DebugPrint }}{{ end -}}
-{{- with .Emojis }}{{ $Emojis = . }}{{ end -}}
-{{- with .Wrapper }}{{ $Wrapper = . }}{{ end -}}
-{{- with .WrapperID }}{{ $WrapperID = . }}{{ end -}}
-{{- with .Label }}{{ $Label = . }}{{ end -}}
-{{- with .LabelID }}{{ $LabelID = . }}{{ end -}}
-{{- with .Gap }}{{ $Gap = . }}{{ end -}}
-{{- with .VerticalAlign }}{{ $VerticalAlign = . }}{{ end -}}
-{{- with .Height }}{{ $Height = . }}{{ end -}}
-
-{{- end -}} {{- /* with site.Data.plugin_webring */ -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
 
 {{- /**********************************************
   Override the default/plugin parameter values with
@@ -45,26 +34,8 @@
   *************************************************/ -}}
 
 {{- with (index site.Data "plugin-webring") -}}
-
-{{- with .Version }}{{ $Version = . }}{{ end -}}
-{{- if (isset . "DebugPrint") }}{{ $DebugPrint = .DebugPrint }}{{ end -}}
-{{- with .Emojis }}{{ $Emojis = . }}{{ end -}}
-{{- with .Wrapper }}{{ $Wrapper = . }}{{ end -}}
-{{- with .WrapperID }}{{ $WrapperID = . }}{{ end -}}
-{{- with .Label }}{{ $Label = . }}{{ end -}}
-{{- with .LabelID }}{{ $LabelID = . }}{{ end -}}
-{{- with .Gap }}{{ $Gap = . }}{{ end -}}
-{{- with .VerticalAlign }}{{ $VerticalAlign = . }}{{ end -}}
-{{- with .Height }}{{ $Height = . }}{{ end -}}
-
-{{- end -}} {{- /* with (index site.Data "plugin-webring") */ -}}
-
-{{- /************************
-  Construct the parameter map
-  ***************************/ -}}
-  
-{{- /* Parameters */ -}}
-{{- $Parameters := dict "Version" $Version "DebugPrint" $DebugPrint "Emojis" $Emojis "Wrapper" $Wrapper "WrapperID" $WrapperID "Label" $Label "LabelID" $LabelID "Gap" $Gap "VerticalAlign" $VerticalAlign "Height" $Height -}}
+{{- $Parameters = merge $Parameters . -}}
+{{- end -}}
 
 {{- /********************************************
   Insert the parameter map into the page scratch.
