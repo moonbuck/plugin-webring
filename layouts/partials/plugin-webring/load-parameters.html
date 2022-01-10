@@ -34,7 +34,7 @@
   *************************************************/ -}}
 
 {{- with (index site.Data "plugin-webring") -}}
-{{- $Parameters = merge $Parameters . -}}
+{{- $Parameters = merge $Parameters .Config -}}
 {{- end -}}
 
 {{- /********************************************
