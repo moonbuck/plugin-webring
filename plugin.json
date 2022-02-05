@@ -1,5 +1,5 @@
 {
   "version": "3.0.0",
   "title": "Moondeer's Webring",
-  "description": "Facilitates adding IndieWeg Webring"
+  "description": "Facilitates adding IndieWeg Webring. A README is on the way. See the documented configuration file in the plugin's data directory for plugin parameters, invoke the partial where you want the nav to show up and feel free to holler at me with any questions."
 }
